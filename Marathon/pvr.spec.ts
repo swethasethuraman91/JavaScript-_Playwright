@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
   await page.goto('https://www.pvrcinemas.com/');
+  //seleccting from dropdown
   await page.locator('div:nth-child(7) > .cities-names > .cities-overlay').click();
   await page.getByText('Cinema', { exact: true }).click();
   await page.locator('.custom-dropdown-arrows > img').click();
@@ -13,8 +14,8 @@ test('test', async ({ page }) => {
   await page.getByRole('button', { name: 'Submit' }).click();
   await page.getByRole('button', { name: 'Accept' }).click();
   await page.getByRole('button', { name: 'Accept' }).click();
-  await page.getByText('4').nth(5).click();
-  
+  //seat selection
+  await page.getByText('4').nth(5).click();  
   await page.getByText('3').nth(2).click();
  //printing bill
   const mov_name  =await page.locator('//h5').innerText();
